@@ -31,7 +31,7 @@ git clone https://github.com/krauss/appointment_scheduler.git
 ```
 2. change directory.
 ```
-cd tango_project
+cd appointment_scheduler
 ```
 3. create a virtual environment.
 ```
