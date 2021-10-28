@@ -25,9 +25,9 @@ Where:
 
 ### To execute the API locally, follow the steps below:
 
-1. 
+1. Clone this repo.
 ```
-git clone https://datahub-lab@dev.azure.com/datahub-lab/crawler/_git/mte-cnd
+git clone https://github.com/krauss/appointment_scheduler.git
 ```
 2. change directory.
 ```
