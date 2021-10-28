@@ -50,3 +50,23 @@ pip3 install -r requirements.txt
 uvicorn server:app --host 0.0.0.0 
 ```
 7. Open your browser and acess the URL: http://localhost:8000/
+
+### To execute the API on Docker, follow these steps:
+
+1. Clone this repo.
+```
+git clone https://github.com/krauss/appointment_scheduler.git
+```
+2. change directory.
+```
+cd appointment_scheduler
+```
+3. Build the Docker image.
+```
+docker build -t appointment_scheduler .
+```
+4. Create the Docker container and ship it!
+```
+docker run -it -p 80:80 -d appointment_scheduler
+```
+5. Open your browser and acess the URL: http://localhost/
