@@ -47,5 +47,9 @@ async def create_appointment(date: str = date_validator, time: str= time_validat
 async def get_appointment_list(user_id: str = user_validator):
     return await scheduler.get_appointments(user_id)
 
+@app.get("/api/all_appointments")
+async def get_all_appointments():
+    return await scheduler.get_all_appointments()
+
 #---------------------------- Static Files -------------------------------
 app.mount("/", StaticFiles(directory="static", html=True), name="static")
