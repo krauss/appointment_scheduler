@@ -24,9 +24,10 @@ class Scheduler:
         user = self.appointment_list.get(user_id)
 
         # If it's a new user
+        splited_time = time.split(':')
         if not user:
-            if time.split(':')[1] != '00' and time.split(':')[1] != '30':
-                raise HTTPException(status_code=400, detail="Appointments can only be created at minutes 00 or 30.")
+            if splited_time[1] != '00' and splited_time[1] != '30' and splited_time[1] != '15':
+                raise HTTPException(status_code=400, detail="Appointments can only be created at minutes 00, 15 or 30.")
 
             start_dt = datetime.fromisoformat(f'{date} {time}:00')
             end_dt = start_dt + timedelta(minutes=30)
@@ -45,6 +46,9 @@ class Scheduler:
             for apntmt in user_appointment_list:
                 if apntmt.start_datetime.split()[0].split('/')[-1] == day:
                     raise HTTPException(status_code=400, detail="You can only have one appointment per day.")
+            
+            if splited_time[1] != '00' and splited_time[1] != '30' and splited_time[1] != '15':
+                raise HTTPException(status_code=400, detail="Appointments can only be created at minutes 00, 15 or 30.")
             
             # All good, he can have his appointment.
             start_dt = datetime.fromisoformat(f'{date} {time}:00')
@@ -65,3 +69,6 @@ class Scheduler:
             return user.get("appointments")
         else:
             raise HTTPException(status_code=400, detail="User not found.")
+
+    async def get_all_appointments(self):
+        return self.appointment_list
