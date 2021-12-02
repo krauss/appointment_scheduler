@@ -1,1 +1,0 @@
-web: uvicorn server:app --port 80
